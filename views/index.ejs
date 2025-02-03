@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Upload an Image</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Uploaded Images</h2>
+    <div class="image-container">
+        <% files.forEach(file => { %>
+            <div class="image-card">
+                <img src="/image/<%= file.filename %>" alt="Uploaded Image">
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
